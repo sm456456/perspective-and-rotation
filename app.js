@@ -25,6 +25,15 @@ Vue.createApp({
       this.rotateX = 0
       this.rotateY = 0
       this.rotateZ = 0
+    },
+    copy() {
+      const element = document.createElement("textarea")
+
+      element.value = `transform: ${this.box.transform}`
+
+      document.body.appendChild(element)
+      element.select()
+      document.execCommand("copy")
     }
   }
 }).mount("#app")
