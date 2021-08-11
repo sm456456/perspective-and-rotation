@@ -28,12 +28,15 @@ Vue.createApp({
     },
     copy() {
       const element = document.createElement("textarea")
-
+      element.setAttribute("readonly", "")
+      element.style.position = "absolute"
+      element.style.left = "-9999px"
       element.value = `transform: ${this.box.transform}`
 
       document.body.appendChild(element)
       element.select()
       document.execCommand("copy")
+      document.body.removeChild(element)
     }
   }
 }).mount("#app")
